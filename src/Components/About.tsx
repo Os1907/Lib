@@ -1,18 +1,18 @@
 // import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import CustomInput from "./CustomInput";
+// import { zodResolver } from "@hookform/resolvers/zod";
+// import { useForm } from "react-hook-form";
+// import { z } from "zod";
+// import CustomInput from "./CustomInput";
 
-type IFormInput = z.infer<typeof formSchema>;
+// type IFormInput = z.infer<typeof formSchema>;
 
-const formSchema = z.object({
-  name: z.string().min(3, "يجب أن يحتوي الاسم على 3 أحرف على الأقل"),
-  email: z.string().email("البريد الإلكتروني غير صحيح"),
-  password: z.string().min(6, "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل"),
-  rePassword: z.string().min(6, "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل"),
-  phone: z.string().min(11, "يجب أن يحتوي رقم الهاتف على 11 رقمًا").max(15, "رقم الهاتف طويل جدًا"),
-});
+// const formSchema = z.object({
+//   name: z.string().min(3, "يجب أن يحتوي الاسم على 3 أحرف على الأقل"),
+//   email: z.string().email("البريد الإلكتروني غير صحيح"),
+//   password: z.string().min(6, "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل"),
+//   rePassword: z.string().min(6, "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل"),
+//   phone: z.string().min(11, "يجب أن يحتوي رقم الهاتف على 11 رقمًا").max(15, "رقم الهاتف طويل جدًا"),
+// });
 
 // const About = () => {
 //   const { register, handleSubmit, formState: { isSubmitting, errors }, watch } = useForm<IFormInput>({
@@ -121,11 +121,89 @@ const formSchema = z.object({
 
 // export default About;
 
+// import { zodResolver } from "@hookform/resolvers/zod";
+// import { useForm } from "react-hook-form";
+// import { z } from "zod";
+// import CustomInput from "./CustomInput";
+
+// type IFormInput = z.infer<typeof formSchema>;
+
+// const formSchema = z.object({
+//   name: z.string().min(3, "يجب أن يحتوي الاسم على 3 أحرف على الأقل"),
+//   email: z.string().email("البريد الإلكتروني غير صحيح"),
+//   password: z.string().min(6, "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل"),
+//   rePassword: z.string().min(6, "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل"),
+//   phone: z.string().min(11, "يجب أن يحتوي رقم الهاتف على 11 رقمًا").max(15, "رقم الهاتف طويل جدًا"),
+// });
+
+// const About = () => {
+//   const {
+//     register,
+//     handleSubmit,
+//     formState: { isSubmitting, errors },
+//   } = useForm<IFormInput>({ resolver: zodResolver(formSchema) });
+
+//   const submitData = async (data: IFormInput) => {
+//     try {
+//       console.log(isSubmitting);
+//       const sending = await fetch("https://ecommerce.routemisr.com/api/v1/auth/signup", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(data),
+//       });
+
+//       // eslint-disable-next-line @typescript-eslint/no-unused-vars
+//       const result = await sending.json();
+//       console.log(sending);
+//       console.log(isSubmitting);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+//   return (
+//     <div className="bg-emerald-800 min-h-screen flex justify-center items-center">
+//       <form onSubmit={handleSubmit(submitData)} className="bg-white p-6 rounded-2xl shadow-lg w-96">
+//         <h2 className="text-xl font-bold mb-4 text-center">User Form</h2>
+
+//         <CustomInput label="Name" placeholder="Amir Mohammed" {...register("name")} error={errors.name?.message} />
+//         <CustomInput label="Email" type="email" placeholder="amir6@senior.com" {...register("email")} error={errors.email?.message} />
+//         <CustomInput label="Password" type="password" placeholder="******" {...register("password")} error={errors.password?.message} />
+//         <CustomInput label="RePassword" type="password" placeholder="******" {...register("rePassword")} error={errors.rePassword?.message} />
+//         <CustomInput label="Phone" type="tel" placeholder="010103056" {...register("phone")} error={errors.phone?.message} />
+
+//         <button className="w-full bg-blue-500 text-white py-2 rounded-2xl hover:bg-blue-600 transition">
+//           {isSubmitting ? "Loading..." : "Send"}
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default About;
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import CustomInput from "./CustomInput";
+
+type IFormInput = z.infer<typeof formSchema>;
+
+const formSchema = z.object({
+  name: z.string().min(3, "يجب أن يحتوي الاسم على 3 أحرف على الأقل"),
+  email: z.string().email("البريد الإلكتروني غير صحيح"),
+  password: z.string().min(6, "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل"),
+  rePassword: z.string().min(6, "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل"),
+  phone: z.string().min(11, "يجب أن يحتوي رقم الهاتف على 11 رقمًا").max(15, "رقم الهاتف طويل جدًا"),
+});
 
 const About = () => {
   const {
     register,
     handleSubmit,
+    watch, 
     formState: { isSubmitting, errors },
   } = useForm<IFormInput>({ resolver: zodResolver(formSchema) });
 
@@ -154,11 +232,11 @@ const About = () => {
       <form onSubmit={handleSubmit(submitData)} className="bg-white p-6 rounded-2xl shadow-lg w-96">
         <h2 className="text-xl font-bold mb-4 text-center">User Form</h2>
 
-        <CustomInput label="Name" placeholder="Amir Mohammed" {...register("name")} error={errors.name?.message} />
-        <CustomInput label="Email" type="email" placeholder="amir6@senior.com" {...register("email")} error={errors.email?.message} />
-        <CustomInput label="Password" type="password" placeholder="******" {...register("password")} error={errors.password?.message} />
-        <CustomInput label="RePassword" type="password" placeholder="******" {...register("rePassword")} error={errors.rePassword?.message} />
-        <CustomInput label="Phone" type="tel" placeholder="010103056" {...register("phone")} error={errors.phone?.message} />
+        <CustomInput label="Name" placeholder="Amir Mohammed" {...register("name")} error={errors.name?.message} value={watch("name")} />
+        <CustomInput label="Email" type="email" placeholder="amir6@senior.com" {...register("email")} error={errors.email?.message} value={watch("email")} />
+        <CustomInput label="Password" type="password" placeholder="******" {...register("password")} error={errors.password?.message} value={watch("password")} />
+        <CustomInput label="RePassword" type="password" placeholder="******" {...register("rePassword")} error={errors.rePassword?.message} value={watch("rePassword")} />
+        <CustomInput label="Phone" type="tel" placeholder="010103056" {...register("phone")} error={errors.phone?.message} value={watch("phone")} />
 
         <button className="w-full bg-blue-500 text-white py-2 rounded-2xl hover:bg-blue-600 transition">
           {isSubmitting ? "Loading..." : "Send"}
